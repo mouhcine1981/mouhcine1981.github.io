@@ -29,6 +29,7 @@ What are the implications of gentrification for current residents?
 
 
 <details><summary>Construction</summary>
+ 
 <p>
 
 
