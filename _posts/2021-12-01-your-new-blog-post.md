@@ -1,9 +1,45 @@
 ## This is my first blog post
+<h1>What is in store? 1</h1>
 What's in store for Downtown?
+
+# Overall 
+
+This is a fairly basic way of thinking about the implications of this improvement. One way we can implement this exercise is to...
+
+bababba
+
+1. First item
+2. Second item
+3. Third item
+4. Fourth item
+
 What are the implications of gentrification for current residents?
  ```tsql
  SELECT *
  FROM sys.tables
  WHERE [name] = 'SomeTable'
  ```
+ | First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+![image](https://user-images.githubusercontent.com/94587267/144359745-166285cc-c817-4953-8730-680918ef84a8.png)
+
+<details><summary>Construction</summary>
+<p>
+
+#### We can hide anything, even code!
+
+    ```ruby
+      puts "Hello World"
+ ![Mprim9](https://user-images.githubusercontent.com/94587267/144357623-31c34304-3820-43cd-b70d-093090895e78.png)
+
+    ```
+
+</p>
+</details>
+
+<h2>Basics 2</h2>
+ 
 ![Mprim9](https://user-images.githubusercontent.com/94587267/144357623-31c34304-3820-43cd-b70d-093090895e78.png)
