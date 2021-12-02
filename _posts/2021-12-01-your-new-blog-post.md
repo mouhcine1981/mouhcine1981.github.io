@@ -40,3 +40,15 @@ What are the implications of gentrification for current residents?
 <h2>Basics 2</h2>
  
 ![Mprim9](https://user-images.githubusercontent.com/94587267/144357623-31c34304-3820-43cd-b70d-093090895e78.png)
+
+<details>
+  <summary>Click to expand!</summary>
+  
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+ ![Mprim9](https://user-images.githubusercontent.com/94587267/144357623-31c34304-3820-43cd-b70d-093090895e78.png)
+
+</details>
