@@ -28,17 +28,13 @@ What are the implications of gentrification for current residents?
  ![Mprim9](https://user-images.githubusercontent.com/94587267/144357623-31c34304-3820-43cd-b70d-093090895e78.png)
 
 
-<details><summary>Construction</summary>
+<details>
  
-<p>
-
-
+ <summary>Construction!</summary>
  
  ![Mprim9](https://user-images.githubusercontent.com/94587267/144357623-31c34304-3820-43cd-b70d-093090895e78.png)
 
    
-
-</p>
 </details>
 
 <h2>Basics 2</h2>
