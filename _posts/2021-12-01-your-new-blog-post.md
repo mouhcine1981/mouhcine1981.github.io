@@ -25,7 +25,8 @@ What are the implications of gentrification for current residents?
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
 
-![image](https://user-images.githubusercontent.com/94587267/144359745-166285cc-c817-4953-8730-680918ef84a8.png)
+ ![Mprim9](https://user-images.githubusercontent.com/94587267/144357623-31c34304-3820-43cd-b70d-093090895e78.png)
+
 
 <details><summary>Construction</summary>
 <p>
