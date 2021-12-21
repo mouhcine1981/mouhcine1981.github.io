@@ -3,14 +3,12 @@
 What's in store for Downtown?
 
 # Overall 
+As of October 2021, there were 156,100 individuals in the labor force of the Wilmington economy. Of those, 151,200 were employed and 4,800 unemployed. 
 
-This is a fairly basic way of thinking about the implications of this improvement. One way we can implement this exercise is to...
 
-bababba
-
-1. First item
-2. Second item
-3. Third item
+1. The labor force is xx above the same month last year and yyy above the same month in 2019. Unlike the rest of the country, there does not appear to be an xxx a
+2. The unemployment rate is now back to pre-pandemic levels.
+3. The sector that has experienced the most significant growth is uu.. 
 4. Fourth item
 
 What are the implications of gentrification for current residents?
@@ -20,7 +18,15 @@ What are the implications of gentrification for current residents?
  WHERE [name] = 'SomeTable'
  ```
  
- | First Header  | Second Header |
+ | Total Non-farm  | Service jobs || Total Non-farm  | Service jobs |
+| ------------- | ------------- || ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 | ------------- | ------------- |
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
