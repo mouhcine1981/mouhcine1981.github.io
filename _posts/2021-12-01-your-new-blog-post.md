@@ -18,9 +18,11 @@ As of October 2021, there were 156,100 individuals in the labor force of the Wil
 | ------------- | ------------- |
 
 
-
+Employment in November 2021 has already exceeded November 2019 levels pre-pandemic. The decline in 2020 was short lived and employment has been on a steady trajectory. 
 
 ![wilmi](https://user-images.githubusercontent.com/94587267/146865971-33df220f-98d2-4b66-9443-31a4c69beffd.png)
+
+In figure xx, we now graph employment for 2019, 2020, and 2021. As 
 
 ![yemp](https://user-images.githubusercontent.com/94587267/147981196-5c62eb9e-9f0d-4879-ae5d-7d665c11d83d.png)
 
