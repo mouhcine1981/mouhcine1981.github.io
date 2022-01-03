@@ -8,8 +8,8 @@ As of October 2021, there were 156,100 individuals in the labor force of the Wil
 
 1. The labor force has 4,400 or 2.9% more individuals the same month last year and 1,584 or 1% more than the pre-pandemic level in 2019. The state of North Carolina's labor force participation rate, on the other hand, as of November 2021 is still 3.6% below the November 2019 level.
 2. The unemployment rate, as of October, 2021, stands at 3.1% which is 2.7 percentage points below the same month in 2020. The unemployment is even below October 2019 -pre-pandemic- which was 3.2%. 
-4. Fourth item
 
+<!
 What are the implications of gentrification for current residents?
  ```tsql
  SELECT *
@@ -21,29 +21,12 @@ What are the implications of gentrification for current residents?
 | ------------- | ------------- || ------------- | ------------- |
 | October 2021  | 156,024 | October 2020  | Content Cell  || October 2021  | Content Cell  || October 2020  | Content Cell  |
 | ------------- | ------------- |
-| October 2019  | 151,675  | Content Cell  || October 2021  | Content Cell  |
-| October 2020  | 154,440  |
+| October 2020  | 151,675  | Content Cell  || October 2021  | Content Cell  |
+| October 2019  | 154,440  |
 | ------------- | ------------- |
-| October 2019  | Content Cell  |
-| October 2020  | Content Cell  |
-| ------------- | ------------- |
-| October 2019  | Content Cell  || October 2021  | Content Cell  || October 2021  | Content Cell  |
-| October 2020  | Content Cell  |
-| ------------- | ------------- |
-| October 2019  | Content Cell  |
-| October 2020  | Content Cell  |
-| ------------- | ------------- |
-| October 2019  | Content Cell  || October 2021  | Content Cell  || October 2021  | Content Cell  |
-
-| October 2019  | Content Cell  || October 2021  | Content Cell  || October 2021  | Content Cell  |
-
-| October 2019  | Content Cell  || October 2021  | Content Cell  || October 2021  | Content Cell  |
-| October 2020  | Content Cell  |
-| ------------- | ------------- |
-| October 2019  | Content Cell  |
 
 
-
+>
 
 ![wilmi](https://user-images.githubusercontent.com/94587267/146865971-33df220f-98d2-4b66-9443-31a4c69beffd.png)
 
