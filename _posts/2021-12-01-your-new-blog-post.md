@@ -8,7 +8,7 @@ As of October 2021, there were 156,100 individuals in the labor force of the Wil
 
 1. The labor force has 4,400 or 2.9% more individuals the same month last year and 1,584 or 1% more than the pre-pandemic level in 2019. The state of North Carolina's labor force participation rate, on the other hand, as of November 2021 is still 3.6% below the November 2019 level.
 2. The unemployment rate, as of October, 2021, stands at 3.1% which is 2.7 percentage points below the same month in 2020. The unemployment is even below October 2019 -pre-pandemic- which was 3.2%. 
-
+######
 <!
 What are the implications of gentrification for current residents?
  ```tsql
@@ -16,7 +16,7 @@ What are the implications of gentrification for current residents?
  FROM sys.tables
  WHERE [name] = 'SomeTable'
  ```
- 
+ >
  | Date  | Total Non-farm || Service jobs  | Goods producing jobs | Unemployment rate | Labor force participation rate|
 | ------------- | ------------- || ------------- | ------------- |
 | October 2021  | 156,024 | October 2020  | Content Cell  || October 2021  | Content Cell  || October 2020  | Content Cell  |
