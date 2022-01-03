@@ -28,6 +28,8 @@ In figure xx, we now graph employment for 2019, 2020, and 2021. As
 
 ![lfemp](https://user-images.githubusercontent.com/94587267/147981227-f8625d2d-975e-4780-8b50-460d7baa6d17.png)
 
+![jgrowth](https://user-images.githubusercontent.com/94587267/147990213-dac51f02-10eb-46a3-9b12-6e21707c70f8.png)
+
 
 <details>
  
