@@ -39,6 +39,9 @@ In figure xx, we now graph employment for 2019, 2020, and 2021. As
 </details>
 
 <h2>Basics 2</h2>
+
+![jgrowth](https://user-images.githubusercontent.com/94587267/147989633-e8776130-c47a-4803-8a94-b97c566d35b3.png)
+
  
 ![Mprim9](https://user-images.githubusercontent.com/94587267/144357623-31c34304-3820-43cd-b70d-093090895e78.png)
 
