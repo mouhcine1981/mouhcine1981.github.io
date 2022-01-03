@@ -19,12 +19,10 @@ What are the implications of gentrification for current residents?
  
  | Date  | Total Non-farm || Service jobs  | Goods producing jobs | Unemployment rate | Labor force participation rate|
 | ------------- | ------------- || ------------- | ------------- |
-| October 2021  | Content Cell  || October 2021  | Content Cell  || October 2021  | Content Cell  |
-| October 2020  | Content Cell  || October 2021  | Content Cell  |
-| October 2020  | Content Cell  |
+| October 2021  | 156,024 | October 2020  | Content Cell  || October 2021  | Content Cell  || October 2020  | Content Cell  |
 | ------------- | ------------- |
-| October 2019  | Content Cell  || October 2021  | Content Cell  || October 2021  | Content Cell  |
-| October 2020  | Content Cell  |
+| October 2019  | 151,675  | Content Cell  || October 2021  | Content Cell  |
+| October 2020  | 154,440  |
 | ------------- | ------------- |
 | October 2019  | Content Cell  |
 | October 2020  | Content Cell  |
