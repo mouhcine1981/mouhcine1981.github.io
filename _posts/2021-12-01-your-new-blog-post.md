@@ -1,4 +1,4 @@
-
+# What do we know about the current state of the Wilmington economy?
 # Data sources
 There are two main data sources **-Current Employment Statistics (CES) and Local Area Unemployment Statistics (LAUS)-**  that provide information about the labor performance of sub-state areas. For the purposes of this entry, we will use both of them to describe the structure of the Wilmington Economy, where it stands relative to the previous year and pre-Covid times, and how it compares to other Metropolitan areas.
 
@@ -33,7 +33,7 @@ In the figure below, we decompose employment by year and show that the job losse
 There have been recently been concerns about the great resignation, sizeable drops in the labor force participation rate, and labor shortages. In the figure below, we show that the labor force and employment both declined sharply in April 2020 but bounced shortly thereafter and have since recovered as they are both above the same levels in 2019. 
 ![lfemp](https://user-images.githubusercontent.com/94587267/147981227-f8625d2d-975e-4780-8b50-460d7baa6d17.png)
 Relative to 2020, unsurprisingly, both employment and the labor force are appreciably higher given that the base period was depressed due the onset of the pandemic and the subsequent changes in behavior, and restrictions.
-![j2](https://user-images.githubusercontent.com/94587267/148258728-b8f54224-187a-4b81-ae99-9321e0cd51be.png)
+![j2](https://user-images.githubusercontent.com/94587267/148267258-fee9c096-b591-45e8-a4ac-d791496227ed.png)
 
 When we compare monthly employment and the labor force relative to 2019, we find a slightly more complicated picture. Monthy employment in 2021 was still below the same month in 2019 until July when it turned positive. The labor force has been higher than 2019 for all months except May and June. 
 ![j3](https://user-images.githubusercontent.com/94587267/148264037-88b40116-124d-454a-89c9-9769d34e5374.png)
@@ -42,9 +42,14 @@ When we compare monthly employment and the labor force relative to 2019, we find
 To better understand the sources of growth, we present below employment growth in the last 6 month of 2021 relative to the same months in 2020. It is clear that the sectors showing the most significant increase -such as Leisure and Hospitality- are the same one that suffered the most in the first few months of the pandemic. With the exception of the Federal Government, all other sectors are above their 2020 levels further confirming continued improvement in the labor market.
 ![allsec](https://user-images.githubusercontent.com/94587267/148265513-18c9231d-3345-42a2-8ffb-db9c091f5dd1.png)
 
-<details>
+# Which sectors are doing better than in 2019?
+Perhaps, unsurprisingly, when we compare the employment levels of each sector to the same period in 2019, we find that the sectors -Leisure and Hospitality, Retail- most sensitive to consumer spending and individuals gathering indoors are the ones still showing the most scars from the pandemic. In addition to those two sectors, State government, Other services, and Manufacturing are also below their 2019 levels. Professional and Business Services, Transportation/Utilities, and Construction are consideraly above their 2019 levels. 
+![rel2019](https://user-images.githubusercontent.com/94587267/148268842-0e9d3486-3f25-46ad-bd94-c90b3ca91fc0.png)
+
+
+##<details>
  
- <summary>Construction!</summary>
+ ##<summary>Construction!</summary>
  
  ![Mprim9](https://user-images.githubusercontent.com/94587267/144357623-31c34304-3820-43cd-b70d-093090895e78.png)
 
@@ -53,19 +58,10 @@ To better understand the sources of growth, we present below employment growth i
 
 <h2>Basics 2</h2>
 
-![jgrowth](https://user-images.githubusercontent.com/94587267/147989633-e8776130-c47a-4803-8a94-b97c566d35b3.png)
+#  How does the Wilmington economy performance to other Metropolitan areas?
+The Wilmington economy as we showed above seems to have recovered most of the jobs it lost as a result of the pandemic. As of October, 2021, Wilmington has 5.6% more jobs than the same month in 2020. That is the highest job gain across the state and is 2.2 percentage points above the state average.
+![allmetro](https://user-images.githubusercontent.com/94587267/148269911-a1e4f796-4c9f-4b6e-b950-f35a43b00308.png)
 
- 
-![Mprim9](https://user-images.githubusercontent.com/94587267/144357623-31c34304-3820-43cd-b70d-093090895e78.png)
+As of October, 2021, Wilmington is only one of five metropolitan areas to have more jobs than in October, 2020. There is considerable variation across metropolitan areas with Asheville having 5.2% fewer jobs and Greenville having 2.4% more jobs than the same month last year .  
+![allmetro19](https://user-images.githubusercontent.com/94587267/148270158-1ab30fb8-410b-4af2-9e08-2d2b33fca2d5.png)
 
-<details>
-  <summary>Click to expand!</summary>
-  
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
- ![Mprim9](https://user-images.githubusercontent.com/94587267/144357623-31c34304-3820-43cd-b70d-093090895e78.png)
-
-</details>
