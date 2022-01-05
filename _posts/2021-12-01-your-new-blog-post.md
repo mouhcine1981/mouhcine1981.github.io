@@ -55,3 +55,13 @@ As of October, 2021, Wilmington is only one of five metropolitan areas to have m
 
 # Main takeaways
 The Wilmington economy has weathered the pandemic related disruption and has outperfromed most other metropolitan areas over the past year. Consumer facing industries are, however, still smaller than they were pre-pandemic. 
+
+<details>
+  <summary>Click to expand!</summary>
+
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+  <details>
