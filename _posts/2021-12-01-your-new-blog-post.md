@@ -46,7 +46,7 @@ To better understand the sources of growth, we present below employment growth i
 Perhaps, unsurprisingly, when we compare the employment levels of each sector to the same period in 2019, we find that the sectors -Leisure and Hospitality, Retail- most sensitive to consumer spending and individuals gathering indoors are the ones still showing the most scars from the pandemic. In addition to those two sectors, State government, Other services, and Manufacturing are also below their 2019 levels. Professional and Business Services, Transportation/Utilities, and Construction are consideraly above their 2019 levels. 
 ![rel2019](https://user-images.githubusercontent.com/94587267/148268842-0e9d3486-3f25-46ad-bd94-c90b3ca91fc0.png)
 
-#  How does the Wilmington economy performance to other Metropolitan areas?
+#  How does the Wilmington economic performance compare to other Metropolitan areas?
 The Wilmington economy as we showed above seems to have recovered most of the jobs it lost as a result of the pandemic. As of October, 2021, Wilmington has 5.6% more jobs than the same month in 2020. That is the highest job gain across the state and is 2.2 percentage points above the state average.
 ![allmetro](https://user-images.githubusercontent.com/94587267/148269911-a1e4f796-4c9f-4b6e-b950-f35a43b00308.png)
 
