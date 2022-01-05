@@ -50,7 +50,7 @@ Perhaps, unsurprisingly, when we compare the employment levels of each sector to
 The Wilmington economy as we showed above seems to have recovered most of the jobs it lost as a result of the pandemic. As of October, 2021, Wilmington has 5.6% more jobs than the same month in 2020. That is the highest job gain across the state and is 2.2 percentage points above the state average.
 ![allmetro](https://user-images.githubusercontent.com/94587267/148269911-a1e4f796-4c9f-4b6e-b950-f35a43b00308.png)
 
-As of October, 2021, Wilmington is only one of five metropolitan areas to have more jobs than in October, 2020. There is considerable variation across metropolitan areas with Asheville having 5.2% fewer jobs and Greenville having 2.4% more jobs than the same month last year .  
+As of October, 2021, Wilmington is only one of five metropolitan areas to have more jobs than in October, 2019. There is considerable variation across metropolitan areas with Asheville having 5.2% fewer jobs and Greenville having 2.4% more jobs than the same month last year .  
 ![allmetro19](https://user-images.githubusercontent.com/94587267/148270158-1ab30fb8-410b-4af2-9e08-2d2b33fca2d5.png)
 
 # Main takeaways
