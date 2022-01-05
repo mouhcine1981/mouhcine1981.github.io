@@ -1,4 +1,4 @@
-# What do we know about the current state of the Wilmington economy?
+## What do we know about the current state of the Wilmington economy?
 # Data sources
 There are two main data sources **-Current Employment Statistics (CES) and Local Area Unemployment Statistics (LAUS)-**  that provide information about the labor performance of sub-state areas. For the purposes of this entry, we will use both of them to describe the structure of the Wilmington Economy, where it stands relative to the previous year and pre-Covid times, and how it compares to other Metropolitan areas.
 
