@@ -53,3 +53,5 @@ The Wilmington economy as we showed above seems to have recovered most of the jo
 As of October, 2021, Wilmington is only one of five metropolitan areas to have more jobs than in October, 2020. There is considerable variation across metropolitan areas with Asheville having 5.2% fewer jobs and Greenville having 2.4% more jobs than the same month last year .  
 ![allmetro19](https://user-images.githubusercontent.com/94587267/148270158-1ab30fb8-410b-4af2-9e08-2d2b33fca2d5.png)
 
+# Main takeaways
+The Wilmington economy has weathered the pandemic related disruption and has outperfromed most other metropolitan areas over the past year. Consumer facing industries are, however, still smaller than they were pre-pandemic. 
