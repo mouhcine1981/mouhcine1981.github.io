@@ -74,7 +74,6 @@ Employment in November 2021 has already exceeded November 2019 levels. The decli
  ## Plot the data
  ggplot(total.df) + geom_rect(aes(xmin = gr.start, xmax = gr.end, ymin = -Inf, ymax = Inf), alpha =20, fill="#DDDDDD") + geom_line(aes(date, Nonfarm)) + ylab('Nonfarm employment')  + xlab('1 year post-COVID') + labs(title="Nonfarm wage employment, Wilmington (Jan 2019 to October 2021)",subtitle="Shaded area=March 2020 to March 2021") + theme_bw()
  ggsave("wilmi.png")
-  <details>
 
 In the figure below, we decompose employment by year and show that the job losses were significant in 2020 but short lived as the recovery looks V-shaped unlike most communities across the country. Employment in 2021 has been above both 2020 and 2019 since August.
 
