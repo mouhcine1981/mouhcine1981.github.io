@@ -12,7 +12,6 @@ capture a snapshot of the labor force by providing an estimate of the percentage
 
 There main differences between the two the program are that the (CES) counts jobs as it is an establishment survey and the (LAUS) counts people as it mainly relies on a household surey. Importantly, the (CES) only counts individuals on payroll and therefore does not include self-employed individuals while the (LAUS) includes both payroll and self-employed individuals.
 
-
 # Where does the Wilmington economy stand? 
 1. According to data from the Current Employment Survey (CES), the Wilmington Metropolitan area had 135,000 Wage and Salary jobs as of October, 2021. This means it has 7,100 or 5.6% more jobs than the same month in 2020. Given the significant labor market disruptions that occured as a result of the pandemic, we also compare the current level of Wage and Salary jobs to the same month in 2019 and find that it is 1,500 or 1.1% higher indicating that unlike many parts of the state and the country it has exceeded its pre-pandemic employment levels. 
 
