@@ -1,4 +1,4 @@
-## How are the U.S states doing?
+## How are the U.S. states doing?
 Most states are still struggling...
 
 ## Employment
