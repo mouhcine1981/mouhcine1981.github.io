@@ -17,7 +17,7 @@ There main differences between the two the program are that the (CES) counts job
 
 2. The labor force has 4,400 or 2.9% more individuals than the same month last year and 1,584 or 1% more than the pre-pandemic level in 2019. The state of North Carolina's labor force participation rate, on the other hand, as of November 2021 is still 3.6% below the November 2019 level.
 
-3. The unemployment rate, as of October, 2021, stands at 3.1% which is 2.7 percentage points below the same month in 2020. The unemployment is even below October 2019 -pre-pandemic- which was 3.2%. 
+3. The unemployment rate, as of October, 2021, stands at 3.1% which is 2.7 percentage points below the same month in 2020. The unemployment rate is even below October 2019 -pre-pandemic- which was 3.2%. 
 
 # Nonfarm Wage and Salary Employment: 
 Employment in November 2021 has already exceeded November 2019 levels. The decline in 2020 was short lived and employment has been on a steady trajectory, since then. 
