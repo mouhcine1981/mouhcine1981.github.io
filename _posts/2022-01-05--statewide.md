@@ -10,7 +10,7 @@ The labor force participation rate is as of November 2021 still below November 2
 
 ![CLFR](https://user-images.githubusercontent.com/94587267/148320767-96fa114d-d171-43e5-9d8e-f22afdc2c1ad.png)
 
-## Figure 3: Emmployment to population ratio
+## Figure 3: Employment to population ratio
 We turn towards an alternative definition of labor market health by showing the employment to population ratio. This measure is at times preferred to the Labor force participation rate because it is not contingent on search behavior by the unemployed individual. Using this measure, 47 states have an employment to population ratio is down as of November 2021 relative to the same month in 2019. 
 
 ![Cepop](https://user-images.githubusercontent.com/94587267/148320786-32fa0956-0ff1-46b7-a6fd-b64c37e841c3.png)
