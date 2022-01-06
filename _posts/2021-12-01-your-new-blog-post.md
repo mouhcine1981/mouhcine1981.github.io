@@ -2,31 +2,6 @@
 # Data sources
 There are two main data sources **-Current Employment Statistics (CES) and Local Area Unemployment Statistics (LAUS)-**  that provide information about the labor market performance of sub-state areas. For the purposes of this entry, we will use both of them to describe the structure of the Wilmington Economy, where it stands relative to the previous year and pre-Covid times, and how it compares to other Metropolitan areas.
 
-<details>
-  
-<summary>Initial draft</summary>
-```R
-YOUR CODE
-\```  <- remove backslash: StackOverflow markdown parsing is broken  
-</details>
-
-  <details>
-<summary>Initial draft</summary>
-
-<pre><code lang="R">
- library(rjson)
- library(blsAPI)
- library(ggplot2)
- 
- ## Pull the data via the API
- payload <- list(
-   'seriesid'=c('SMS37489000000000001'),
-   'startyear'=2019,
-   'endyear'=2021)
- response <- blsAPI(payload)
- json <- fromJSON(response)
-</code></pre>
-</details>
 Nonfarm payroll employment estimates come from the monthly
 **(CES)**, which surveys
 approximately 144,000 businesses and government agencies, representing approximately 697,000 individual worksites nationally. In addition to overall nonfarm payroll, The Current Employment Statistics (CES) program produces detailed industry estimates of nonfarm employment, hours, and earnings of workers on payrolls.
@@ -49,15 +24,173 @@ Employment in November 2021 has already exceeded November 2019 levels. The decli
 
 ![wilmi, out.width = '40%'](https://user-images.githubusercontent.com/94587267/146865971-33df220f-98d2-4b66-9443-31a4c69beffd.png)
 
+ <details>
+<summary>Code</summary>
+
+<pre><code lang="R">
+library(rjson)
+ library(blsAPI)
+ library(ggplot2)
+ 
+ ## Pull the data via the API
+ payload <- list(
+   'seriesid'=c('SMS37489000000000001'),
+   'startyear'=2019,
+   'endyear'=2021)
+ response <- blsAPI(payload)
+ json <- fromJSON(response)
+ 
+ ## Process results
+ apiDF <- function(data){
+   df <- data.frame(year=character(),
+                    period=character(),
+                    periodName=character(),
+                    value=character(),
+                    stringsAsFactors=FALSE)
+   
+   i <- 0
+   for(d in data){
+     i <- i + 1
+     df[i,] <- unlist(d)
+   }
+   return(df)
+ }
+ 
+ total.df <- apiDF(json$Results$series[[1]]$data)
+
+
+ ## Change value type from character to numeric
+ total.df[,4] <- as.numeric(total.df[,4])
+ 
+ ## Rename value prior to merging
+ names(total.df)[4] <- 'Nonfarm'
+
+
+ total.df$date <- as.POSIXct(strptime(paste0('1',total.df$periodName,total.df$year), '%d%B%Y'))
+ 
+ ## Beginning and end dates for the Great Recession (used in shaded area)
+ gr.start <- as.POSIXct(strptime('1March2020', '%d%B%Y'))
+ gr.end <- as.POSIXct(strptime('1March2021', '%d%B%Y'))
+ ## Plot the data
+ ggplot(total.df) + geom_rect(aes(xmin = gr.start, xmax = gr.end, ymin = -Inf, ymax = Inf), alpha =20, fill="#DDDDDD") + geom_line(aes(date, Nonfarm)) + ylab('Nonfarm employment')  + xlab('1 year post-COVID') + labs(title="Nonfarm wage employment, Wilmington (Jan 2019 to October 2021)",subtitle="Shaded area=March 2020 to March 2021") + theme_bw()
+ ggsave("wilmi.png")
+ 
+ 
+</code></pre>
+</details>
+
 In the figure below, we decompose employment by year and show that the job losses were significant in 2020 but short lived as the recovery looks V-shaped unlike most communities across the country. Employment in 2021 has been above both 2020 and 2019 since August.
 
 ![yemp](https://user-images.githubusercontent.com/94587267/147981196-5c62eb9e-9f0d-4879-ae5d-7d665c11d83d.png)
+
+<details>
+<summary>Code</summary>
+
+<pre><code lang="R">
+ colors <- c("blue", "black", "gold1")
+ 
+
+ 
+ p <- ggplot(data=total.df, aes(x=period, y=Nonfarm,group=year,color=year)) +  theme_bw()+
+   geom_line(,size=2)
+ p
+ p+geom_line(data=subset(total.df, year == "2019"), color="blue", size=1.5) +
+   geom_line(data=subset(total.df, year == "2020"), color="grey50", size=1.5) +
+   geom_line(data=subset(total.df, year == "2021"), color="gold1", size=1.5) +
+   scale_x_discrete(labels=c("M01" = "January", "M02" = "February",
+                             "M03" = "March", "M04"="April", "M05"="May","M06"="June","M07"="July","M08"="August","M09"="September","M10"="October","M11"="November","M12"="December")) +
+   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+   labs(title="Total Nonfarm wage employment in 2019, 2020, and 2021",x = "Month",
+        y = "Nonfarm employment (thousands)")  +
+   scale_color_manual(values = c("blue","grey50","gold1")) 
+ 
+ ggsave("yemp.png")
+ 
+</code></pre>
+</details>
 
 # What about the Labor Force?
 There have been recently been concerns about the great resignation, sizeable drops in the labor force participation rate, and labor shortages. In the figure below, we show that the labor force and employment both declined sharply in April 2020 but bounced shortly thereafter and have since recovered as they are both above the same levels in 2019. 
 ![lfemp](https://user-images.githubusercontent.com/94587267/147981227-f8625d2d-975e-4780-8b50-460d7baa6d17.png)
 Relative to 2020, unsurprisingly, both employment and the labor force are appreciably higher given that the base period was depressed due the onset of the pandemic and the subsequent changes in behavior, and restrictions.
 ![j2](https://user-images.githubusercontent.com/94587267/148267258-fee9c096-b591-45e8-a4ac-d791496227ed.png)
+
+<details>
+<summary>Code</summary>
+
+<pre><code lang="R">
+ ######API SERIES
+ ###LABOR FORCE LAUMT374890000000006
+ ###EMPLOYMENT 	LAUMT374890000000005
+ ####UNEMPLOYMENT 	LAUMT374890000000004
+ ###UR rate LAUMT374890000000003
+ 
+ library(rjson)
+ library(blsAPI)
+ library(ggplot2)
+ 
+ ## Pull the data via the API
+ lf <- list(
+   'seriesid'=c('LAUMT374890000000006', 'LAUMT374890000000005'),
+   'startyear'=2019,
+   'endyear'=2021)
+ response <- blsAPI(lf, 2)
+ json <- fromJSON(response)
+ 
+ ## Process results
+ apiDF <- function(data){
+   df <- data.frame(year=character(),
+                    period=character(),
+                    periodName=character(),
+                    value=character(),
+                    stringsAsFactors=FALSE)
+   
+   i <- 0
+   for(d in data){
+     i <- i + 1
+     df[i,] <- unlist(d)
+   }
+   return(df)
+ }
+ 
+ lf.df <- apiDF(json$Results$series[[1]]$data)
+ emp.df <- apiDF(json$Results$series[[2]]$data)
+ 
+ ## Change value type from character to numeric
+ lf.df[,4] <- as.numeric(lf.df[,4])
+ emp.df[,4] <- as.numeric(emp.df[,4])
+ 
+ ## Rename value prior to merging
+ #names(lf.df)[4] <- 'Labor.force'
+ #names(emp.df)[4] <- 'Employment'
+ 
+ ###Create names of the individual variables
+ emp.df$name <- c("Employment")
+ lf.df$name<- c("Labor force")
+ appendedDf <- rbind(emp.df,lf.df)
+ 
+ #######Think about the way to graph this for a second
+ appendedDf$value <- as.numeric(as.character(appendedDf$value/1000))
+ 
+ p <- ggplot(data=appendedDf, aes(x=period, y=value)) +  theme_bw()+
+  geom_bar(stat="identity")
+ p+
+   facet_wrap(~name+year)
+ 
+ plot <- ggplot(appendedDf, aes(period, value, fill=name))
+ plot <- plot + geom_bar(stat = "identity", position = 'dodge') +
+   facet_wrap(~year) +
+   theme_bw () +
+   scale_x_discrete(labels=c("M01" = "January", "M02" = "February",
+                             "M03" = "March", "M04"="April", "M05"="May","M06"="June","M07"="July","M08"="August","M09"="September","M10"="October","M11"="November","M12"="December")) +
+   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+   labs(title="Labor force and total employment in 2019, 2020, and 2021",x = "Month",
+        y = "Employment and Labor force in thousands") +
+   theme(legend.title = element_blank())
+ plot
+ ggsave("lfemp.png")
+</code></pre>
+</details>
 
 When we compare monthly employment and the labor force relative to 2019, we find a slightly more complicated picture. Monthy employment in 2021 was still below the same month in 2019 until July when it turned positive. The labor force has been higher than 2019 for all months except May and June. 
 ![j3](https://user-images.githubusercontent.com/94587267/148264037-88b40116-124d-454a-89c9-9769d34e5374.png)
