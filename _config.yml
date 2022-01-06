@@ -16,6 +16,11 @@ twitter_username: "@MGuettabi"
 #########################################################################################
 ######### Nothing below needs to be changed (unless you know what you're doing) #########
 #########################################################################################
+
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+
 theme: "minima"
 
 rss: rss
