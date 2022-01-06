@@ -2,23 +2,6 @@
 # Data sources
 There are two main data sources **-Current Employment Statistics (CES) and Local Area Unemployment Statistics (LAUS)-**  that provide information about the labor market performance of sub-state areas. For the purposes of this entry, we will use both of them to describe the structure of the Wilmington Economy, where it stands relative to the previous year and pre-Covid times, and how it compares to other Metropolitan areas.
 
-</details>
-
-<details><summary markdown="span">markdown</summary>
-
-~~~ swift
-public var markdown: String
-
-public var markdown: String
- 
-   ## Total non farm SMS37489000000000001 
- library(rjson)
- library(blsAPI)
- library(ggplot2)
-~~~
-
-</details>
-
 Nonfarm payroll employment estimates come from the monthly
 **(CES)**, which surveys
 approximately 144,000 businesses and government agencies, representing approximately 697,000 individual worksites nationally. In addition to overall nonfarm payroll, The Current Employment Statistics (CES) program produces detailed industry estimates of nonfarm employment, hours, and earnings of workers on payrolls.
