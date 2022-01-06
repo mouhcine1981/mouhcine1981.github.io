@@ -24,15 +24,20 @@ There main differences between the two the program are that the (CES) counts job
 Employment in November 2021 has already exceeded November 2019 levels. The decline in 2020 was short lived and employment has been on a steady trajectory, since then. 
 
 ![wilmi, out.width = '40%'](https://user-images.githubusercontent.com/94587267/146865971-33df220f-98d2-4b66-9443-31a4c69beffd.png)
-<details>
-<Code>
 
- # Total non farm SMS37489000000000001 
+
+<details>
+<summary><b>Code</b></summary>
+
+ 
+```json
+{
+  ## Total non farm SMS37489000000000001 
  library(rjson)
  library(blsAPI)
  library(ggplot2)
  
- # Pull the data via the API
+ ## Pull the data via the API
  payload <- list(
    'seriesid'=c('SMS37489000000000001'),
    'startyear'=2019,
@@ -40,7 +45,7 @@ Employment in November 2021 has already exceeded November 2019 levels. The decli
  response <- blsAPI(payload)
  json <- fromJSON(response)
  
- # Process results
+ ## Process results
  apiDF <- function(data){
    df <- data.frame(year=character(),
                     period=character(),
@@ -59,22 +64,24 @@ Employment in November 2021 has already exceeded November 2019 levels. The decli
  total.df <- apiDF(json$Results$series[[1]]$data)
 
 
- # Change value type from character to numeric
+ ## Change value type from character to numeric
  total.df[,4] <- as.numeric(total.df[,4])
  
- # Rename value prior to merging
+ ## Rename value prior to merging
  names(total.df)[4] <- 'Nonfarm'
 
 
  total.df$date <- as.POSIXct(strptime(paste0('1',total.df$periodName,total.df$year), '%d%B%Y'))
  
- # Beginning and end dates for the Great Recession (used in shaded area)
+ ## Beginning and end dates for the Great Recession (used in shaded area)
  gr.start <- as.POSIXct(strptime('1March2020', '%d%B%Y'))
  gr.end <- as.POSIXct(strptime('1March2021', '%d%B%Y'))
- # Plot the data
+ ## Plot the data
  ggplot(total.df) + geom_rect(aes(xmin = gr.start, xmax = gr.end, ymin = -Inf, ymax = Inf), alpha =20, fill="#DDDDDD") + geom_line(aes(date, Nonfarm)) + ylab('Nonfarm employment')  + xlab('1 year post-COVID') + labs(title="Nonfarm wage employment, Wilmington (Jan 2019 to October 2021)",subtitle="Shaded area=March 2020 to March 2021") + theme_bw()
  ggsave("wilmi.png")
-</Code>
+}
+```
+
 </details>
 
 In the figure below, we decompose employment by year and show that the job losses were significant in 2020 but short lived as the recovery looks V-shaped unlike most communities across the country. Employment in 2021 has been above both 2020 and 2019 since August.
