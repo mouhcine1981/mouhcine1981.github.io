@@ -25,6 +25,7 @@ Employment in November 2021 has already exceeded November 2019 levels. The decli
 
 ![wilmi, out.width = '40%'](https://user-images.githubusercontent.com/94587267/146865971-33df220f-98d2-4b66-9443-31a4c69beffd.png)
 <details>
+ {::options parse_block_html="true" /}
 <Code>
 <Code>Click to expand!</Code>
 
@@ -78,6 +79,8 @@ Employment in November 2021 has already exceeded November 2019 levels. The decli
  ggsave("wilmi.png")
 </Code>
 </details>
+{::options parse_block_html="false" /}
+
 
 In the figure below, we decompose employment by year and show that the job losses were significant in 2020 but short lived as the recovery looks V-shaped unlike most communities across the country. Employment in 2021 has been above both 2020 and 2019 since August.
 
