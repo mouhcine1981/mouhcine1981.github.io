@@ -1,6 +1,6 @@
 ## What do we know about the current state of the Wilmington economy?
 # Data sources
-There are two main data sources **-Current Employment Statistics (CES) and Local Area Unemployment Statistics (LAUS)-**  that provide information about the labor performance of sub-state areas. For the purposes of this entry, we will use both of them to describe the structure of the Wilmington Economy, where it stands relative to the previous year and pre-Covid times, and how it compares to other Metropolitan areas.
+There are two main data sources **-Current Employment Statistics (CES) and Local Area Unemployment Statistics (LAUS)-**  that provide information about the labor market performance of sub-state areas. For the purposes of this entry, we will use both of them to describe the structure of the Wilmington Economy, where it stands relative to the previous year and pre-Covid times, and how it compares to other Metropolitan areas.
 
 Nonfarm payroll employment estimates come from the monthly
 **(CES)**, which surveys
@@ -14,7 +14,7 @@ There main differences between the two the program are that the (CES) counts job
 
 
 # Where does the Wilmington economy stand? 
-1. According to data from the Current Employment Survey (CES), the Wilmington Metropolitan area had 135,000 Wage and Salary jobs as of October, 2021. This means it has 7,100 or 5.6% more jobs than the same month in 2020. Given the significant labor market disruptions that occured as a result of the pandemic, we also compare the current level of Wage and Salary jobs to the same month in 2019 and find that it is 1,500 or 1.1% higher indicating that unlike many parts of the state and the country it has exceeded its pre-pandemic employement levels. 
+1. According to data from the Current Employment Survey (CES), the Wilmington Metropolitan area had 135,000 Wage and Salary jobs as of October, 2021. This means it has 7,100 or 5.6% more jobs than the same month in 2020. Given the significant labor market disruptions that occured as a result of the pandemic, we also compare the current level of Wage and Salary jobs to the same month in 2019 and find that it is 1,500 or 1.1% higher indicating that unlike many parts of the state and the country it has exceeded its pre-pandemic employment levels. 
 
 2. The labor force has 4,400 or 2.9% more individuals than the same month last year and 1,584 or 1% more than the pre-pandemic level in 2019. The state of North Carolina's labor force participation rate, on the other hand, as of November 2021 is still 3.6% below the November 2019 level.
 
