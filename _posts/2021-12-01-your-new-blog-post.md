@@ -3,20 +3,17 @@
 There are two main data sources **-Current Employment Statistics (CES) and Local Area Unemployment Statistics (LAUS)-**  that provide information about the labor market performance of sub-state areas. For the purposes of this entry, we will use both of them to describe the structure of the Wilmington Economy, where it stands relative to the previous year and pre-Covid times, and how it compares to other Metropolitan areas.
 </details>
 
-<details><summary markdown="span">markdown</summary>
+<details>
+ <summary>
 
-~~~ swift
-public var markdown: String
-
-public var markdown: String
  ```
    ## Total non farm SMS37489000000000001 
  library(rjson)
  library(blsAPI)
  library(ggplot2)
-~~~
 ```
-</details>
+ </summary>
+  </details>
 
 Nonfarm payroll employment estimates come from the monthly
 **(CES)**, which surveys
