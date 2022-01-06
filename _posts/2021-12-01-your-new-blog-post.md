@@ -198,27 +198,448 @@ When we compare monthly employment and the labor force relative to 2019, we find
 # Where is the employment growth coming from?
 To better understand the sources of growth, we present below employment growth in the last 6 month of 2021 relative to the same months in 2020. It is clear that the sectors showing the most significant increase -such as Leisure and Hospitality- are the same one that suffered the most in the first few months of the pandemic. With the exception of the Federal Government, all other sectors are above their 2020 levels further confirming continued improvement in the labor market.
 ![allsec](https://user-images.githubusercontent.com/94587267/148265513-18c9231d-3345-42a2-8ffb-db9c091f5dd1.png)
+ 
+ <details>
+<summary>Code</summary>
 
+<pre><code lang="R">
+
+library(devtools)
+library(rjson)
+library(blsAPI)
+library(ggplot2)
+
+## Pull the data via the API
+payload <- list(
+  'seriesid'=c('SMU37489001500000001', 'SMU37489003000000001','SMU37489004200000001','SMU37489004100000001','SMU37489004300000001','SMU37489005000000001','SMU37489005500000001','SMU37489006000000001','SMU37489006500000001','SMU37489007000000001','SMU37489008000000001','SMU37489009091000001','SMU37489009092000001','SMU37489009093000001'),
+  'startyear'=2019,
+  'endyear'=2021)
+response <- blsAPI(payload)
+json <- fromJSON(response)
+
+## Process results
+apiDF <- function(data){
+  df <- data.frame(year=character(),
+                   period=character(),
+                   periodName=character(),
+                   value=character(),
+                   stringsAsFactors=FALSE)
+  
+  i <- 0
+  for(d in data){
+    i <- i + 1
+    df[i,] <- unlist(d)
+  }
+  return(df)
+}
+
+mining.df <- apiDF(json$Results$series[[1]]$data)
+manuf.df <- apiDF(json$Results$series[[2]]$data)
+retrade.df <- apiDF(json$Results$series[[3]]$data)
+whotrade.df <- apiDF(json$Results$series[[4]]$data)
+transp.df <-  apiDF(json$Results$series[[5]]$data)
+info.df<-apiDF(json$Results$series[[6]]$data)
+fin.df <- apiDF(json$Results$series[[7]]$data)
+prof.df <- apiDF(json$Results$series[[8]]$data)
+edu.df<-apiDF(json$Results$series[[9]]$data)
+les.df<-apiDF(json$Results$series[[10]]$data)
+oth.df<-apiDF(json$Results$series[[11]]$data)
+fed.df<- apiDF(json$Results$series[[12]]$data)
+st.df<-apiDF(json$Results$series[[13]]$data)
+loc.df<-apiDF(json$Results$series[[14]]$data)
+
+## Change value type from character to numeric
+mining.df[,4] <- as.numeric(mining.df[,4])
+manuf.df[,4] <- as.numeric(manuf.df[,4])
+retrade.df[,4] <- as.numeric(retrade.df[,4])
+whotrade.df[,4] <- as.numeric(whotrade.df[,4])
+transp.df[,4] <- as.numeric(transp.df[,4])
+info.df[,4] <- as.numeric(info.df[,4])
+fin.df[,4] <- as.numeric(fin.df[,4])
+prof.df[,4] <- as.numeric(prof.df[,4])
+edu.df[,4] <- as.numeric(edu.df[,4])
+les.df[,4] <- as.numeric(les.df[,4])
+oth.df[,4] <- as.numeric(oth.df[,4])
+fed.df[,4] <- as.numeric(fed.df[,4])
+st.df[,4] <- as.numeric(st.df[,4])
+loc.df[,4] <- as.numeric(loc.df[,4])
+
+
+###Identify the variable
+mining.df$pos <- ( "Mining/Logging/Construction")
+manuf.df$pos <- ("Manufacturing")
+retrade.df$pos <- ("Retail Trade")
+whotrade.df$pos <- ("Wholesale Trade")
+transp.df$pos <- ("Transportation and Utilities")
+info.df$pos <-("Information")
+fin.df$pos <-("Finance")
+prof.df$pos <-("Professional and Business Services")
+edu.df$pos <-("Education and Healthcare Services")
+les.df$pos <-("Leisure and Hospitality")
+oth.df$pos <-("Other Services")
+fed.df$pos <- ("Federal Government")
+st.df$pos <- ("State Government")
+loc.df$pos <- ("Local Government")
+
+
+####This puts all the individual sectors into the same panel
+new <- rbind(mining.df, manuf.df,retrade.df,whotrade.df,transp.df,info.df,fin.df,prof.df,edu.df,les.df,oth.df,fed.df,st.df,loc.df)
+
+####Splitting the month variable into numeric and character
+allsec<-data.frame(new, character = substr(new$period, 1, 1), numeric = substr(new$period, 2, nchar(new$period)))  
+###turn month variable into numeric
+library(data.table)
+setDT(allsec) 
+allsec[, mn := as.numeric(numeric)]
+### combine month and year
+
+library(zoo)
+allsec$Date <- as.yearmon(paste(allsec$year, allsec$numeric), "%Y %m")
+
+#### Difference relative to 12 months prior
+library(dplyr)
+allsec<-allsec %>%
+  group_by(pos) %>%
+  arrange(Date) %>%
+  mutate(diff = value - lag(value,12))
+
+allsec$yesno <- ifelse(allsec$diff>0, "Yes", "No")
+
+
+####Growth rate
+library(dplyr)
+allsec<-allsec %>%
+  group_by(pos) %>%
+  arrange(Date) %>%
+  mutate(perc = diff / lag(value,12))
+
+################################Now graph percentages
+p2<-ggplot(data=subset(allsec, year == "2021" & mn>4 & mn<11), aes(x=reorder(periodName,mn), y=perc,fill = yesno,label = scales::percent(perc))) +
+  geom_bar(stat="identity") +
+  ylab("Year over year percentage change in employment") +
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 90,size=10, vjust = 0.5, hjust=1))+
+  labs(title="Percentage change in employment in 2021 relative to the same month in 2020",x = "Month",
+       y = "Percentage change") +
+  theme(legend.title = element_blank()) +
+  theme(legend.position = "none",
+        panel.grid = element_blank(),
+        panel.background = element_blank())+
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1L))+
+  geom_text(aes(label = sprintf("%0.1f",perc*100,"%" )),vjust=-0.6,size=3)+
+  scale_fill_discrete(name = "", labels = c("Decline", "Growth"))
+p2
+
+
+p2+
+  facet_wrap(~pos) 
+
+ggsave("allsec.png") 
+
+###############################################Relative to the same month in 2019 (AS A SHARE)#####################
+
+####Growth rate
+library(dplyr)
+allsec<-allsec %>%
+  group_by(pos) %>%
+  arrange(Date) %>%
+  mutate(rat = value / lag(value,24))
+</code></pre>
+</details>
+
+ 
 # Which sectors are doing better than in 2019?
 Perhaps, unsurprisingly, when we compare the employment levels of each sector to the same period in 2019, we find that the sectors -Leisure and Hospitality, Retail- most sensitive to consumer spending and individuals gathering indoors are the ones still showing the most scars from the pandemic. In addition to those two sectors, State government, Other services, and Manufacturing are also below their 2019 levels. Professional and Business Services, Transportation/Utilities, and Construction are consideraly above their 2019 levels. 
 ![rel2019](https://user-images.githubusercontent.com/94587267/148268842-0e9d3486-3f25-46ad-bd94-c90b3ca91fc0.png)
+
+<details>
+<summary>Code</summary>
+
+<pre><code lang="python">
+###############################################Relative to the same month in 2019 (AS A SHARE)#####################
+
+####Growth rate
+library(dplyr)
+allsec<-allsec %>%
+  group_by(pos) %>%
+  arrange(Date) %>%
+  mutate(rat = value / lag(value,24))
+############################################Relative to same month in 2019
+allsec$yes <- ifelse(allsec$rat>0.9999, "Yes", "No")
+
+
+p2<-ggplot(data=subset(allsec, year == "2021" & mn>4 & mn<11), aes(x=reorder(periodName,mn), y=rat,fill=yes,label = scales::percent(rat))) +
+  geom_bar(stat="identity") +
+  ylab("Year over year percentage change in employment") +
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 90,size=10, vjust = 0.5, hjust=1))+
+  labs(title="Ratio of employment in 2021 relative to the same month in 2019",x = "Month",
+       y = "Ratio-Employment in 2021/Employment in 2019") +
+  theme(legend.title = element_blank()) +
+  theme(legend.position = "none",
+        panel.grid = element_blank(),
+        panel.background = element_blank())+
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1L))+
+  scale_y_continuous(limits = c(0, 1.3), breaks = seq(0,1.3, .4),labels = scales::percent_format(accuracy = 1L))+
+  scale_fill_discrete(name = "", labels = c("Employment in 2021 is below the same month in 2019", "Employment in 2021 is above the same month in 2019")) +
+  geom_text(aes(label = sprintf("%0.1f",rat*100,"%" )),vjust=-0.3,size=3) +
+  theme(legend.position=c(0.7,0.05))
+  
+p2
+
+
+p2+
+  facet_wrap(~pos) 
+
+ggsave("rel2019.png") 
+</code></pre>
+</details>
+
+
+
+
 
 #  How does the Wilmington economic performance compare to other Metropolitan areas?
 The Wilmington economy as we showed above seems to have recovered most of the jobs it lost as a result of the pandemic. As of October, 2021, Wilmington has 5.6% more jobs than the same month in 2020. That is the highest job gain across the state and is 2.2 percentage points above the state average.
 ![allmetro](https://user-images.githubusercontent.com/94587267/148269911-a1e4f796-4c9f-4b6e-b950-f35a43b00308.png)
 
+<details>
+<summary>Code</summary>
+
+<pre><code lang="python">
+###############################################Weekly earnings/hourly earnings/ and weekly hours
+####Weekly hours SMU37489000500000002
+####Weekly earnings 	SMU37489000500000011
+####Hourly earnings SMU37489000500000003
+
+ ####################Decomposition by sector (North Carolina)
+ ###total nonfarm (SMU37000000000000001)
+ ##Goods producing (SMU37000000600000001)
+ ##Mining and logging (SMU37000001500000001)
+ ##Manufacturing (SMU37000003000000001)
+ ##Trade/transportation/utilities (SMU37000004000000001)
+ ##Information (SMU37000005000000001)
+ ##Financial activities (SMU37000005500000001)
+ ##Professional and Business services (SMU37000006000000001)
+ ##Education and Healthcare services (SMU37000006500000001)
+ ##Leisure and Hospitality (SMU37000007000000001)
+ ##Other services (SMU37000008000000001)
+ ##Government(SMU37000009000000001)
+ ##total private (SMU37000000500000001)
+ ##Goods producing (SMU37000000600000001)
+ ##Service providing (SMU37000000700000001)
+ ##Wholesale trade (SMU37000004100000001)
+ ##Food and drinking places (SMU37000007072200001)
+ ##Federal gov (SMU37000009091000001)
+ ## State gov (SMU37000009092000001)
+ ##local gov (SMU37000009093000001)
+ 
+ ##Retail trade (SMU37000004200000001)
+ 
+ 
+ ##### List of Metropolitan areas (Charlotte, Raleigh, Greensboro,Winston-salem,Durham,Fayetvile,Asheville,Hickory,Jacksonville,Greenville,Burlington,Rocky Mount,New Bern,Goldsboro)
+ ###########Now pull Total non-farm by Metro 
+
+
+#################Decomposition by sector (All BLS DATA) (WILMINGTON)
+library(devtools)
+library(rjson)
+library(blsAPI)
+library(ggplot2)
+
+## Pull the data via the API
+payload <- list(
+  'seriesid'=c('SMU37000000000000001', 'SMU37117000000000001','SMU37155000000000001','SMU37167400000000001','SMU37205000000000001','SMU37221800000000001','SMU37241400000000001','SMU37246600000000001','SMU37247800000000001','SMU37258600000000001','SMU37273400000000001','SMU37351000000000001','SMU37395800000000001','SMU37405800000000001','SMU37489000000000001','SMU37491800000000001'),
+  'startyear'=2019,
+  'endyear'=2021)
+response <- blsAPI(payload)
+json <- fromJSON(response)
+
+## Process results
+apiDF <- function(data){
+  df <- data.frame(year=character(),
+                   period=character(),
+                   periodName=character(),
+                   value=character(),
+                   stringsAsFactors=FALSE)
+  
+  i <- 0
+  for(d in data){
+    i <- i + 1
+    df[i,] <- unlist(d)
+  }
+  return(df)
+}
+
+state.df <- apiDF(json$Results$series[[1]]$data)
+ash.df <- apiDF(json$Results$series[[2]]$data)
+Burlington.df <- apiDF(json$Results$series[[3]]$data)
+char.df <- apiDF(json$Results$series[[4]]$data)
+durham.df <-  apiDF(json$Results$series[[5]]$data)
+faye.df<-apiDF(json$Results$series[[6]]$data)
+gold.df <- apiDF(json$Results$series[[7]]$data)
+green.df <- apiDF(json$Results$series[[8]]$data)
+greenville.df<-apiDF(json$Results$series[[9]]$data)
+hickory.df<-apiDF(json$Results$series[[10]]$data)
+jackson.df<-apiDF(json$Results$series[[11]]$data)
+newbern.df<- apiDF(json$Results$series[[12]]$data)
+Raleigh.df<-apiDF(json$Results$series[[13]]$data)
+rocky.df<-apiDF(json$Results$series[[14]]$data)
+wilm.df<-apiDF(json$Results$series[[15]]$data)
+winston.df<-apiDF(json$Results$series[[16]]$data)
+## Change value type from character to numeric
+state.df[,4] <- as.numeric(state.df[,4])
+ash.df[,4] <- as.numeric(ash.df[,4])
+Burlington.df[,4] <- as.numeric(Burlington.df[,4])
+char.df[,4] <- as.numeric(char.df[,4])
+durham.df[,4] <- as.numeric(durham.df[,4])
+faye.df[,4] <- as.numeric(faye.df[,4])
+gold.df[,4] <- as.numeric(gold.df[,4])
+green.df[,4] <- as.numeric(green.df[,4])
+greenville.df[,4] <- as.numeric(greenville.df[,4])
+hickory.df[,4] <- as.numeric(hickory.df[,4])
+jackson.df[,4] <- as.numeric(jackson.df[,4])
+newbern.df[,4] <- as.numeric(newbern.df[,4])
+Raleigh.df[,4] <- as.numeric(Raleigh.df[,4])
+rocky.df[,4] <- as.numeric(rocky.df[,4])
+wilm.df[,4] <- as.numeric(wilm.df[,4])
+winston.df[,4] <- as.numeric(winston.df[,4])
+
+
+###Identify the variable
+state.df$pos <- ( "Statewide")
+ash.df$pos <- ("Asheville")
+Burlington.df$pos <- ("Burlington")
+char.df$pos <- ("Charlotte")
+durham.df$pos <- ("Durham")
+faye.df$pos <-("Fayetville")
+gold.df$pos <-("Goldsboro")
+green.df$pos <-("Greensboro")
+greenville.df$pos <-("Greenville")
+hickory.df$pos <-("Hickory")
+jackson.df$pos <-("Jacksonville")
+newbern.df$pos <- ("New Bern")
+Raleigh.df$pos <- ("Raleigh")
+rocky.df$pos <- ("Rocky Mount")
+wilm.df$pos <- ("Wilmington")
+winston.df$pos <- ("Winston Salem")
+
+
+
+
+####This puts all the individual sectors into the same panel
+metro <- rbind(state.df, ash.df,Burlington.df,char.df,durham.df,faye.df,gold.df,green.df,greenville.df,hickory.df,jackson.df,newbern.df,Raleigh.df,rocky.df,wilm.df,winston.df)
+
+####Splitting the month variable into numeric and character
+allmetro<-data.frame(metro, character = substr(metro$period, 1, 1), numeric = substr(metro$period, 2, nchar(metro$period)))  
+###turn month variable into numeric
+library(data.table)
+setDT(allmetro) 
+allmetro[, mn := as.numeric(numeric)]
+### combine month and year
+
+library(zoo)
+allmetro$Date <- as.yearmon(paste(allmetro$year, allmetro$mn), "%Y %m")
+
+#### Difference relative to 12 months prior
+library(dplyr)
+allmetro<-allmetro %>%
+  group_by(pos) %>%
+  arrange(Date) %>%
+  mutate(diff = value - lag(value,12))
+
+allmetro$yesno <- ifelse(allmetro$diff>0, "Yes", "No")
+
+
+####Growth rate
+library(dplyr)
+allmetro<-allmetro %>%
+  group_by(pos) %>%
+  arrange(Date) %>%
+  mutate(perc = diff / lag(value,12))
+
+
+area.color <- c("withcolor", NA, NA, NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"withcolor",NA)
+################################Now graph percentages
+p2<-ggplot(data=subset(allmetro, year == "2021" & mn==10), aes(x=reorder(pos,perc), y=perc,fill = area.color,label = scales::percent(perc))) +
+  geom_bar(stat="identity") +
+  ylab("Year over year percentage change in employment") +
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 90,size=10, vjust = 0.5, hjust=1))+
+  labs(title="Percentage change in employment in October 2021 relative to the same month in 2020",x = "Metropolitan area",
+       y = "Percentage change") +
+  theme(legend.title = element_blank()) +
+  theme(legend.position = "none",
+        panel.grid = element_blank(),
+        panel.background = element_blank())+
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1L))+
+  geom_text(aes(label = sprintf("%0.1f",perc*100,"%" )),vjust=-0.4,size=4)+
+  scale_fill_discrete(name = "", labels = c("Decline", "Growth"))
+p2
+
+
+
+
+ggsave("allmetro.png") 
+
+ 
+</code></pre>
+</details>
+
 As of October, 2021, Wilmington is only one of five metropolitan areas to have more jobs than in October, 2019. There is considerable variation across metropolitan areas with Asheville having 5.2% fewer jobs and Greenville having 2.4% more jobs than the same month last year .  
 ![allmetro19](https://user-images.githubusercontent.com/94587267/148270158-1ab30fb8-410b-4af2-9e08-2d2b33fca2d5.png)
+
+<details>
+<summary>Code</summary>
+
+<pre><code lang="python">
+###############################################Now relative to 2019
+#### Difference relative to 24 months prior
+library(dplyr)
+allmetro<-allmetro %>%
+  group_by(pos) %>%
+  arrange(Date) %>%
+  mutate(diff24 = value - lag(value,24))
+
+allmetro$yesno <- ifelse(allmetro$diff>0, "Yes", "No")
+
+
+####Growth rate
+library(dplyr)
+allmetro<-allmetro %>%
+  group_by(pos) %>%
+  arrange(Date) %>%
+  mutate(perc24 = diff24 / lag(value,24))
+
+
+area.color <- c("withcolor", NA, NA, NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"withcolor",NA)
+################################Now graph percentages
+p2<-ggplot(data=subset(allmetro, year == "2021" & mn==10), aes(x=reorder(pos,perc24), y=perc24,fill = area.color,label = scales::percent(perc))) +
+  geom_bar(stat="identity") +
+  ylab("Year over year percentage change in employment") +
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 90,size=10, vjust = 0.5, hjust=1))+
+  labs(title="Percentage change in employment in October 2021 relative to the same month in 2019",x = "Metropolitan area",
+       y = "Percentage change") +
+  theme(legend.title = element_blank()) +
+  theme(legend.position = "none",
+        panel.grid = element_blank(),
+        panel.background = element_blank())+
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1L))+
+  geom_text(aes(label = sprintf("%0.1f",perc24*100,"%" )),vjust=-0.3,size=4)+
+  scale_fill_discrete(name = "", labels = c("Decline", "Growth"))
+p2
+
+
+
+
+ggsave("allmetro19.png") 
+
+ 
+</code></pre>
+</details>
 
 # Main takeaways
 The Wilmington economy has weathered the pandemic related disruption and has outperfromed most other metropolitan areas over the past year. Consumer facing industries are, however, still smaller than they were pre-pandemic. 
 
-<details>
-  <summary>Click to expand!</summary>
 
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
-  <details>
