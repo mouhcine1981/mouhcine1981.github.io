@@ -23,7 +23,7 @@ Nonfarm payroll employment estimates come from the monthly
 **(CES)**, which surveys
 approximately 144,000 businesses and government agencies, representing approximately 697,000 individual worksites nationally. In addition to overall nonfarm payroll, The Current Employment Statistics (CES) program produces detailed industry estimates of nonfarm employment, hours, and earnings of workers on payrolls.
 
-The **(LAUS)** program calculates the state-level monthly unemployment rate, a modelbased estimate, using inputs from multiple sources, including
+The **(LAUS)** program calculates the state-level monthly unemployment rate, a model-based estimate, using inputs from multiple sources, including
 the Current Population Survey **(CPS)**, the **CES** program, the **unemployment insurance system**, and the **U.S. census**. The unemployment rate is used to
 capture a snapshot of the labor force by providing an estimate of the percentage of the civilian noninstitutional population aged 16 years and over that is unemployed and looking for work. 
 
