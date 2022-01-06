@@ -24,9 +24,9 @@ There main differences between the two the program are that the (CES) counts job
 Employment in November 2021 has already exceeded November 2019 levels. The decline in 2020 was short lived and employment has been on a steady trajectory, since then. 
 
 ![wilmi, out.width = '40%'](https://user-images.githubusercontent.com/94587267/146865971-33df220f-98d2-4b66-9443-31a4c69beffd.png)
-<details>
-<Code>Click to expand!</Code>
 
+<Code>
+<details>
 
  ## Total non farm SMS37489000000000001 
  library(rjson)
