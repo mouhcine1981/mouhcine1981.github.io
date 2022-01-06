@@ -25,7 +25,6 @@ Employment in November 2021 has already exceeded November 2019 levels. The decli
 
 ![wilmi, out.width = '40%'](https://user-images.githubusercontent.com/94587267/146865971-33df220f-98d2-4b66-9443-31a4c69beffd.png)
 <details>
-<Code>
 <Code>Click to expand!</Code>
 
 
