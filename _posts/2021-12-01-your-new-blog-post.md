@@ -24,9 +24,11 @@ There main differences between the two the program are that the (CES) counts job
 Employment in November 2021 has already exceeded November 2019 levels. The decline in 2020 was short lived and employment has been on a steady trajectory, since then. 
 
 ![wilmi, out.width = '40%'](https://user-images.githubusercontent.com/94587267/146865971-33df220f-98d2-4b66-9443-31a4c69beffd.png)
-
 <details>
-  <>Click to expand!</summary>
+<Code>
+<Code>Click to expand!</Code>
+
+
  ## Total non farm SMS37489000000000001 
  library(rjson)
  library(blsAPI)
@@ -74,7 +76,9 @@ Employment in November 2021 has already exceeded November 2019 levels. The decli
  ## Plot the data
  ggplot(total.df) + geom_rect(aes(xmin = gr.start, xmax = gr.end, ymin = -Inf, ymax = Inf), alpha =20, fill="#DDDDDD") + geom_line(aes(date, Nonfarm)) + ylab('Nonfarm employment')  + xlab('1 year post-COVID') + labs(title="Nonfarm wage employment, Wilmington (Jan 2019 to October 2021)",subtitle="Shaded area=March 2020 to March 2021") + theme_bw()
  ggsave("wilmi.png")
-
+</summary>
+</Code>
+</details>
 In the figure below, we decompose employment by year and show that the job losses were significant in 2020 but short lived as the recovery looks V-shaped unlike most communities across the country. Employment in 2021 has been above both 2020 and 2019 since August.
 
 ![yemp](https://user-images.githubusercontent.com/94587267/147981196-5c62eb9e-9f0d-4879-ae5d-7d665c11d83d.png)
