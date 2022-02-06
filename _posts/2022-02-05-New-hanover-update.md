@@ -1,7 +1,7 @@
 ## How has New Hanover County changed over the last decade?
 # A non-pandemic related post
 The pandemic has, rightfully, consumed most policy makers' attention and resources as economies around the world were disrupted. It is, however, important to examine how the local economy was changing even before this
-most recent shock. To that end, this post will focus on how the New Hanover county has changed over the last decade by examining changes in the labor market, commuting behavior, and xxx.
+most recent shock. To that end, this post will focus on how the New Hanover county has changed over the last decade by examining changes in the population, labor market, share of people working from home, and commuting behavior.
 For the purposes of this analysis, we will rely on the 1-year estimates from  **American Community Survey** . The U.S. Census Bureau publishes American
 Community Survey (ACS) 1-year estimates for geographic areas with populations of 65,000 or more. The 65,000-population threshold ensures that 1-year
 data are available for all regions, divisions, states,
