@@ -47,4 +47,4 @@ large as New Hanover county. The county with the second highest increase was Moo
 
 ## Figure 6: Have commuting times changed?
 The answer appears to be no as commuting times have remained stable -even if they are measured with significant error- for the past decade. While, as we show above, there is a higher share of individuals who are working from home, those who are working from an office seem to not have changed their commuting patterns.
-![trtime](https://user-images.githubusercontent.com/94587267/152661722-710afd07-e061-426b-93f1-20c74040072e.png)
+![trtime](https://user-images.githubusercontent.com/94587267/152666184-4b828ad3-9aa5-400b-86c8-fd33a6d6f745.png)
