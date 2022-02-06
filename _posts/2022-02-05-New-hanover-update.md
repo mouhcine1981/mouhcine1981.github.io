@@ -14,10 +14,9 @@ of error when discussing the changes in the New Hanover economy.
 # What exactly has changed?
 Since 2010, New hanover county has considerably more people, more employed individuals, a higher median income, and a significantly higher share of indviduals working from home.
 - In 2010, the population over the age of 16 was 166,752. In 2019, that number has increased by 30,135 or 18.07%. By way of comparison, the statewide population increased by 12.36% during the same span.
-- The number of people employed has increased by 21,808 or 22.5%.
-- The median household income -which is presented in inflation adjusted dollars- has increased by more than 10,000 dollars.
-- Perhaps most strikingly, the share of people working from home has increased from 4% in 2010 to almost 11% in 2019 which is a 6.9 percentage point increase. This change, however, does not appear to be unique to Wilmington as
-many other counties seem to have experienced increase. New Hanover county's increase is the most pronounced in the state. Of note is that these adjustments are from 2019 which precedes the significant work from home shift caused by the
+- The number of people employed has increased by 21,808 or 22.5% between 2010 and 2019.
+- The median household income -which is presented in inflation adjusted dollars- has increased by more than 10,000 dollars in the nine year span between 2010 and 2019.
+- Perhaps most strikingly, the share of people working from home has increased from 4% in 2010 to almost 11% in 2019 which is a 6.9 percentage point increase. This change, while not unique to New Hanover county as 31 other counties saw increases, is more pronounced than other counties. New Hanover county's increase is the most pronounced in the state. Of note is that these adjustments are from 2019 which precedes the significant work from home shift caused by the
 pandemic.
 - We also show in Figure 4 that average commuting times have remained around 20 minutes in the county even if they are measured with considerable error. which seem to have remained rather stable. 
 
