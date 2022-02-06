@@ -42,8 +42,9 @@ adjustments become permanent.
 
 ## Is this a New Hanover county change only?
 Aside from New Hanover county, 31 other counties experienced increases in the share of people working from home between 2010 and 2019. However, none experience an increase as 
-large as New Hanover county. The county with the second highest increase was Moore county where the share of people working from home increase by 6.1 percentage points.
+large as New Hanover county. The county with the second highest increase was Moore county where the share of people working from home increased by 6.1 percentage points.
 ![other](https://user-images.githubusercontent.com/94587267/152661702-e3735a71-165a-4f63-8269-2b3a38dc36c6.png)
 
 ## Have commuting times changed?
+The answer appears to be no as commuting times have remained stable for the past decade. While, as we show above, there is a higher share of individuals who are working from home, those who are working from an office seem to not have changed their commuting patterns.
 ![trtime](https://user-images.githubusercontent.com/94587267/152661722-710afd07-e061-426b-93f1-20c74040072e.png)
