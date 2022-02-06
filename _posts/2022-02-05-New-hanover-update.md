@@ -19,7 +19,7 @@ Since 2010, New hanover county has considerably more people, more employed indiv
 - Perhaps most strikingly, the share of people working from home has increased from 4% in 2010 to almost 11% in 2019 which is a 6.9 percentage point increase. This change, however, does not appear to be unique to Wilmington as
 many other counties seem to have experienced increase. New Hanover county's increase is the most pronounced in the state. Of note is that these adjustments are from 2019 which precedes the significant work from home shift caused by the
 pandemic.
-- We also show in Figure 4 the average commuting times have remained around 20 minutes in the county even if they are measured with considerable error. which seem to have remained rather stable. 
+- We also show in Figure 4 that average commuting times have remained around 20 minutes in the county even if they are measured with considerable error. which seem to have remained rather stable. 
 
 ## Figure 1: Population over the age of 16
 ![pop](https://user-images.githubusercontent.com/94587267/152660982-429042d0-5d88-4f27-8d54-285ad5b8885c.png)
