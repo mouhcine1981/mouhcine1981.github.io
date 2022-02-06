@@ -1,4 +1,4 @@
-## How has the New Hanover County changed over the last decade?
+## How has New Hanover County changed over the last decade?
 # A non-pandemic related post
 The pandemic has, rightfully, consumed most policy makers' attention and resources as economies around the world were disrupted. It is, however, important to examine how the local economy was changing even before this
 most recent shock. To that end, this post will focus on how the New Hanover county has changed over the last decade by examining changes in the labor market, commuting behavior, and xxx.
