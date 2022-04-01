@@ -2,7 +2,7 @@
 Oil prices and as a result gasoline prices, have risen considerably since the start of the Ukranian war. Concerns about prices at the pump add to the high inflation the country has been experiencing due to the supply shortages and the consequences of the pandemic. In this short piece, I provide some basic statistics on how much the average American spends on gasoline, how that differs by income group, 
 and how these increases will translate in additional costs.
 
-The average share of pre-tax income spent on gasoline was just below 2% in 2020. This share declined between 2014 and 2020 due to the downward pressure on oil prices experienced since 2014 when that share was as high as 3.7%.
+The average share of pre-tax income spent on gasoline was just below 2% in 2020. The share of income people spend on gasoline declined substantially between 2014 and 2020 due to the downward pressure on oil prices experienced since 2014 when that share was as high as 3.7%.
 
 
 The recent increases in oil prices have significant ramifications for gas prices and the cost of many things that we consume on a daily basis. Below is a limited, but I think important, picture of the bite that higher gas prices take out of a person's budget 
